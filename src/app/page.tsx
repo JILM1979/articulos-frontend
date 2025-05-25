@@ -21,7 +21,7 @@ export default function Home() {
   const [pedidoId, setPedidoId] = useState('');
 
   useEffect(() => {
-    fetch('http://articulos-microservicio-production.up.railway.app/api/articulos')
+    fetch('https://articulos-microservicio-production.up.railway.app/api/articulos')
       .then((res) => res.json())
       .then(setArticulos);
   }, []);
@@ -42,7 +42,7 @@ export default function Home() {
 
   const enviarPedido = async () => {
     const payload = lineas.map(linea => ({ ...linea, pedido_id: pedidoId }));
-    const res = await fetch('http://articulos-microservicio-production.up.railway.app/api/articulos/lineas-pedido', {
+    const res = await fetch('https://articulos-microservicio-production.up.railway.app/api/articulos/lineas-pedido', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
